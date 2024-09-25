@@ -1,37 +1,42 @@
-let deferredPrompt;
-
+// Registering ServiceWorker
 if ('serviceWorker' in navigator) {
-    console.log("Registering service worker...")
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(reg => {
-                console.log('Service Worker registered', reg);
-            })
-            .catch(err => {
-                console.error('Service Worker registration failed', err);
-            });
-    });
+	navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+		console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	}).catch(function (err) {
+		console.log('ServiceWorker registration failed: ', err);
+	});
 }
 
+
+let deferredPrompt
+
+
 window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
     deferredPrompt = e;
-    const installButton = document.getElementById('installButton');
-    installButton.style.backgroundColor = 'blue';
-});
+    console.log("Beforeinstallprompt triggered")
+})
 
 
 const installApp = document.getElementById('installButton');
 
 installApp.addEventListener('click', async () => {
-    if (deferredPrompt !== null) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-            deferredPrompt = null;
-        }
-    }
-    else
-    console.log("No deferred prompt")
-    alert("No deferred prompt")
+	installSource = 'customInstallationButton';
+
+	if (deferredPrompt !== null) {
+		deferredPrompt.prompt();
+		const { outcome } = await deferredPrompt.userChoice;
+		if (outcome === 'accepted') {
+			deferredPrompt = null;
+		}
+
+		ga('send', {
+			hitType: 'event',
+			eventCategory: 'pwa-install',
+			eventAction: 'custom-installation-button-clicked',
+			eventLabel: installSource,
+			eventValue: outcome === 'accepted' ? 1 : 0
+		});
+	} else {
+		alert('Notepad is already installed.')
+	}
 });
