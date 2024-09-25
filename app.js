@@ -16,18 +16,18 @@ window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
     const installButton = document.getElementById('installButton');
-    installButton.style.display = 'block';
+    installButton.style.backgroundColor = 'blue';
+});
 
-    installButton.addEventListener('click', () => {
-        installButton.style.display = 'none';
+
+const installApp = document.getElementById('installButton');
+
+installApp.addEventListener('click', async () => {
+    if (deferredPrompt !== null) {
         deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the A2HS prompt');
-            } else {
-                console.log('User dismissed the A2HS prompt');
-            }
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
             deferredPrompt = null;
-        });
-    });
+        }
+    }
 });
