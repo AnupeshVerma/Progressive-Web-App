@@ -1,8 +1,9 @@
 let deferredPrompt;
 
 if ('serviceWorker' in navigator) {
+    console.log("Registering service worker...")
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
+        navigator.serviceWorker.register('/service-worker.js')
             .then(reg => {
                 console.log('Service Worker registered', reg);
             })
@@ -30,4 +31,7 @@ installApp.addEventListener('click', async () => {
             deferredPrompt = null;
         }
     }
+    else
+    console.log("No deferred prompt")
+    alert("No deferred prompt")
 });
