@@ -1,62 +1,67 @@
 {
-    "short_name": "Notepad",
-    "name": "Notepad",
-    "description": "An offline-capable, quick, and distraction-free Notepad",
-    "display": "standalone",
-    "icons": [
-      {
-        "src": "img/icon-48.png",
-        "sizes": "48x48",
-        "type": "image/png"
-      },
-      {
-        "src": "img/icon-96.png",
-        "sizes": "96x96",
-        "type": "image/png"
-      },
-      {
-        "src": "img/icon-144.png",
-        "sizes": "144x144",
-        "type": "image/png"
-      },
-      {
-        "src": "img/icon-196.png",
-        "sizes": "196x196",
-        "type": "image/png"
-      }
-    ],
-    "screenshots": [
-      {
-        "src": "img/screenshot1.png",
-        "type": "image/png",
-        "sizes": "540x720"
-      },
-      {
-        "src": "img/screenshot2.png",
-        "type": "image/png",
-        "sizes": "540x720"
-      },
-      {
-        "src": "img/screenshot-desktop-dark.png",
-        "type": "image/png",
-        "form_factor": "wide",
-        "sizes": "2460x1674"
-      },
-      {
-        "src": "img/screenshot-desktop-light.png",
-        "type": "image/png",
-        "form_factor": "wide",
-        "sizes": "2460x1674"
-      }
-    ],
-    "start_url": "index.html",
-    "theme_color": "#3F51B5",
-    "background_color": "#EEEEEE",
-    "url_handlers": [
-      {
-        "origin": "https://a-verma2020.github.io/pwa_testing/"
-      }
-    ],
-    "display_override": ["minimal-ui"]
-  }
-  
+  "short_name": "EduGorilla",
+  "name": "EduGorilla: Exam Prep App",
+  "description": "With 1,500+ competitive exams covered, EduGorilla stands out as the Top-notch exam preparation app with good quality of Live Classes, Video Courses, E-Library, Test Series, Books and Mock Interviews.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "pwa_images/icon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa_images/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa_images/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa_images/icon-196.png",
+      "sizes": "196x196",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "pwa_images/screenshot1.png",
+      "type": "image/png",
+      "sizes": "1780x1200"
+    },
+    {
+      "src": "pwa_images/screenshot2.png",
+      "type": "image/png",
+      "sizes": "1780x1200"
+    },
+    {
+      "src": "pwa_images/screenshot3.png",
+      "type": "image/png",
+      "form_factor": "wide",
+      "sizes": "1780x1200"
+    },
+    {
+      "src": "pwa_images/screenshot4.png",
+      "type": "image/png",
+      "form_factor": "wide",
+      "sizes": "1780x1200"
+    },
+    {
+      "src": "pwa_images/screenshot5.png",
+      "type": "image/png",
+      "form_factor": "wide",
+      "sizes": "1780x1200"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#3F51B5",
+  "background_color": "#EEEEEE",
+  "url_handlers": [
+    {
+      "origin": "https://stgtestseries.edugorilla.com/"
+    }
+  ],
+  "display_override": ["standalone", "minimal-ui"]
+}
