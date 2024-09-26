@@ -55,12 +55,12 @@
       "sizes": "1780x1200"
     }
   ],
-  "start_url": "/",
+  "start_url": "index.html",
   "theme_color": "#3F51B5",
   "background_color": "#EEEEEE",
   "url_handlers": [
     {
-      "origin": "https://stgtestseries.edugorilla.com/"
+      "origin": "https://github.com/A-verma2020/pwa_testing/"
     }
   ],
   "display_override": ["standalone", "minimal-ui"]
