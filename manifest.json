@@ -54,7 +54,7 @@
     "background_color": "#EEEEEE",
     "url_handlers": [
       {
-        "origin": "https://notepad.js.org"
+        "origin": "https://a-verma2020.github.io/pwa_testing/"
       }
     ],
     "display_override": ["minimal-ui"]
