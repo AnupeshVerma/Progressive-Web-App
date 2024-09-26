@@ -1,35 +1,39 @@
-// Registering Service Worker
+// Registering ServiceWorker
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(function (registration) {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function (err) {
-        console.log('ServiceWorker registration failed: ', err);
-    });
+	navigator.serviceWorker.register('sw.js').then(function (registration) {
+		console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	}).catch(function (err) {
+		console.log('ServiceWorker registration failed: ', err);
+	});
 }
 
 let deferredPrompt;
+let installSource;
 
 window.addEventListener('beforeinstallprompt', (e) => {
-    deferredPrompt = e;
-    console.log("Beforeinstallprompt triggered");
+	deferredPrompt = e;
+	installSource = 'nativeInstallCard';
+
+	e.userChoice.then(function (choiceResult) {
+		if (choiceResult.outcome === 'accepted') {
+			deferredPrompt = null;
+		}
+	});
 });
 
+const installApp = document.getElementById('installApp');
 
-const installApp = document.getElementById('installButton');
 installApp.addEventListener('click', async () => {
+	installSource = 'customInstallationButton';
 
-    if (deferredPrompt !== null) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-            deferredPrompt = null;
-            // Log to console or perform another action when accepted
-            console.log('User accepted the installation.');
-        } else {
-            // Log to console or perform another action when dismissed
-            console.log('User dismissed the installation.');
-        }
-    } else {
-        alert('Notepad is already installed.');
-    }
+	if (deferredPrompt !== null) {
+		deferredPrompt.prompt();
+		const { outcome } = await deferredPrompt.userChoice;
+		if (outcome === 'accepted') {
+			deferredPrompt = null;
+		}
+	} else {
+		// showToast('Notepad is already installed.')
+        alert("Already installed")
+	}
 });
