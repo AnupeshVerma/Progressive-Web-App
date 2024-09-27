@@ -56,15 +56,4 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Disable text selection
 	document.body.style.userSelect = "none";
 
-	// Prevent double-tap zoom on mobile devices
-	document.addEventListener("touchstart",function (event) {
-		if (event.touches.length > 1) {
-			event.preventDefault();
-		}
-	},{ passive: false });
-
-	// Disable pinch-to-zoom
-	document.addEventListener("gesturestart", function (event) {
-		event.preventDefault();
-	});
 });
