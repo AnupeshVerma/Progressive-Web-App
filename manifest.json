@@ -27,26 +27,19 @@
   ],
   "screenshots": [
     {
-      "src": "pwa_images/screenshot1.png",
+      "src": "pwa_images/ss1.png",
       "type": "image/png",
-      "sizes": "1780x1200"
+      "sizes": "720x480"
+    },
+    {
+      "src": "pwa_images/ss_elibrary.png",
+      "type": "image/png",
+      "sizes": "720x1280"
     },
     {
       "src": "pwa_images/screenshot2.png",
       "type": "image/png",
-      "sizes": "1780x1200"
-    },
-    {
-      "src": "pwa_images/screenshot3.png",
-      "type": "image/png",
-      "form_factor": "wide",
-      "sizes": "1780x1200"
-    },
-    {
-      "src": "pwa_images/screenshot4.png",
-      "type": "image/png",
-      "form_factor": "wide",
-      "sizes": "1780x1200"
+      "sizes": "720x485"
     },
     {
       "src": "pwa_images/screenshot5.png",
